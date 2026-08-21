@@ -8,10 +8,14 @@ class Solution {
 
         while(r<n){
            if(nums[r] == 0) Zeroes++;
-           while(Zeroes > k){
+        //    while(Zeroes > k){          // Overall T.C = O(N) , kyuki ye loop maz n times hi chalga  , So total T.C = O(N) + (N)
+        //     if(nums[l] == 0) Zeroes--;
+        //     l++;
+        //    }
+        if(Zeroes > k){
             if(nums[l] == 0) Zeroes--;
             l++;
-           }
+        }
            if(Zeroes <= k){
             maxLen = Math.max(maxLen, r-l+1);
            }
