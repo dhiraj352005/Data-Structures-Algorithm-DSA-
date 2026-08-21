@@ -3,23 +3,24 @@ class Solution {
         int n=s.length();
         HashMap<Character, Integer> map = new HashMap<>();
 
-        int l=0, r=0, length=0;
+        int l=0, r=0, maxLength=0;
 
         while(r<n){
-            if(!map.containsKey(s.charAt(r))){
-               map.put(s.charAt(r), r);
-            }else{
-                int removeCharUpToThisIndex = map.get(s.charAt(r));
-                while(l<= removeCharUpToThisIndex){
-                    map.remove(s.charAt(l++));
+            char ch = s.charAt(r);
+            if(map.containsKey(ch)){
+                if(map.get(ch) >= l){
+                  l = map.get(ch) + 1;
                 }
-                map.put(s.charAt(r),r );
+                map.put(ch, r);
+            }else{
+                map.put(ch, r);
             }
-            length = Math.max(length, r-l+1);
+        
+            maxLength = Math.max(maxLength, r-l+1);
             r++;
         }
 
-        return length;
+        return maxLength;
     }
 }
 
