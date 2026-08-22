@@ -14,9 +14,9 @@ class Solution {
            while((r-l+1) - maxFreq > k){  // invalid condtion , trim down the window 
               map[s.charAt(l) - 'A']--;
               l++;
-              maxFreq = 0;
-              for(int i=0; i<26; i++)   // editing the maxfreq
-                maxFreq = Math.max(maxFreq, map[i]);
+            //   maxFreq = 0;         // Not contributing the ans as maxFreq is decresing . 
+            //   for(int i=0; i<26; i++)   // editing the maxfreq
+            //     maxFreq = Math.max(maxFreq, map[i]);
            }
               if((r-l+1) - maxFreq <= k) maxLen = Math.max(maxLen, r-l+1);
               r++;  
