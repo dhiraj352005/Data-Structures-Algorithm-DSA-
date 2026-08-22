@@ -11,7 +11,7 @@ class Solution {
            char ch = s.charAt(r);
            map[ch-'A']++;
            maxFreq = Math.max(maxFreq,map[ch-'A']);
-           while((r-l+1) - maxFreq > k){  // invalid condtion , trim down the window 
+           if((r-l+1) - maxFreq > k){  // invalid condtion , trim down the window 
               map[s.charAt(l) - 'A']--;
               l++;
             //   maxFreq = 0;         // Not contributing the ans as maxFreq is decresing . 
